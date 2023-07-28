@@ -1,0 +1,70 @@
+/**
+ * Bible Helps Publication styles
+ */
+
+/* Headings */
+h3,
+h4,
+h5,
+h6,
+span.h3 {
+	font-size: inherit;
+	font-weight: bold;
+}
+h4,
+h5,
+h6,
+span.h4 {
+	font-weight: normal;
+	font-style: italic;
+}
+p.title {
+	font-size: 125%;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Poetry */
+div.poetry {
+	display: table;
+	margin: 0 auto;
+}
+p.poetry {
+	padding-left: 8%;
+}
+
+/* Bible text */
+p.bibletext {
+	font-size: 110%;
+	font-style: italic;
+	padding-left: 8%;
+	padding-right: 8%;
+}
+span.bibletext {
+	font-style: italic;
+}
+
+/* Attribution */
+p.attribution {
+	font-size: 90%;
+	text-align: right;
+}
+
+/* Lists */
+ul.plainlist {
+	list-style: none;
+}
+
+/* Horizontal rules */
+hr {
+	background-color: #ebebeb;
+	border: 0;
+	height: 1px;
+	margin: 1.5em 0;
+}
+
+/* Quotes */
+blockquote {
+	margin-left: 8%;
+	margin-right: 8%;
+}

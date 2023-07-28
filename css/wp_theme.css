@@ -1,0 +1,939 @@
+/*
+Theme Name: Bible Helps
+Theme URI: http://biblehelpsinc.org
+Description: WordPress theme for Bible Helps by Philip Newcomer
+Author: Philip Newcomer
+Author URI: http://philipnewcomer.net/
+Version: 1.0
+Template: genesis
+
+License: GPLv2
+*/
+
+
+/* =Defaults
+-------------------------------------------------------------- */
+
+* {
+	        box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+html {
+	background: #FFF;
+	font-size: 62.5%;
+}
+body,
+button,
+input,
+select,
+textarea {
+	font-size: 16px; /* font-size: 1.6rem; Add back after this Chrome bug is fixed:
+	                                          https://code.google.com/p/chromium/issues/detail?id=319623
+	                                          and https://code.google.com/p/chromium/issues/detail?id=320754 */
+	font-family: Tahoma, sans-serif;
+	color: #333;
+}
+.nav-primary,
+article.entry .entry-title,
+article.entry .entry-content {
+	font-family: "PT Serif", Georgia, "Times New Roman", serif;
+}
+body {
+	background: #fbfbfb;
+	border-top: 5px solid #333; border-top: 0.5rem solid #333;
+	border-bottom: 5px solid #333; border-top: 0.5rem solid #333;
+}
+a {
+	color: navy;
+}
+a:hover,
+a:active {
+	color: #555;
+}
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+.wrap,
+.content-sidebar-wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+.content-sidebar-wrap:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.content p {
+	line-height: 1.5;
+}
+.content .entry-title {
+	margin-top: 0;
+}
+
+@media only screen and ( max-width: 768px ) {
+
+	.wrap,
+	.content-sidebar-wrap {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+}
+
+
+/* =Global
+-------------------------------------------------------------- */
+
+/* Buttons */
+.button,
+.pagination li a,
+.search-form .search-submit {
+	background: #333;
+	color: #eee;
+}
+.button:hover, .button:active,
+.pagination li a:hover, .pagination li a:active,
+.search-submit:hover, .search-submit:active {
+	background: #000;
+	color: #ccc;
+}
+
+/* Dropdowns */
+ul.menu {
+	line-height: 1.0;
+}
+ul.menu:after {
+	clear: both;
+	content: "";
+	display: table;
+}
+ul.menu,
+ul.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.menu li {
+	position: relative;
+	white-space: nowrap;
+}
+ul.menu a {
+	display: block;
+}
+ul.menu > li {
+	float: left;
+}
+ul.menu ul {
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99;
+}
+ul.menu li:hover ul,
+ul.menu li.sfHover ul {
+	left: 0;
+}
+ul.menu ul ul {
+	top: -999em;
+}
+ul.menu ul li:hover > ul,
+ul.menu ul li.sfHover > ul {
+	left: 100%;
+	top: 0;
+}
+
+/* Media */
+img {
+	max-width: 100%;
+	height: auto;
+}
+.alignleft {
+	float: left;
+	margin-right: 1em;
+	margin-bottom: 0.5em;
+}
+.alignright {
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.publication-image {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.publication-image,
+.wp-caption {
+	background: #eee;
+	overflow: hidden;
+}
+.publication-image img,
+.wp-caption img {
+	display: block;
+	margin: 10px auto 0;
+}
+.publication-image-caption,
+.wp-caption-text {
+	font-family: Tahoma, sans-serif;
+	font-size: 13px; font-size: 1.3rem;
+	margin: 0.5em 10px;
+	text-align: center;
+}
+.publication-image-title {
+	text-align: center;
+	margin: 0.5em 0;
+}
+
+
+/* =Layouts
+-------------------------------------------------------------- */
+
+.content-sidebar .content-sidebar-wrap .content {
+	float: left;
+	width: 65%;
+}
+.content-sidebar .content-sidebar-wrap .sidebar {
+	float: right;
+	width: 30%;
+}
+
+.sidebar-content .content-sidebar-wrap .content {
+	float: right;
+	width: 65%;
+}
+.sidebar-content .content-sidebar-wrap .sidebar {
+	float: left;
+	width: 30%;
+	padding-right: 2em;
+}
+
+@media only screen and ( max-width: 960px ) {
+
+	.site-inner .content-sidebar-wrap .content,
+	.site-inner .content-sidebar-wrap .sidebar {
+		width: 100%;
+		float: none;
+	}
+
+	.site-inner .content-sidebar-wrap .sidebar {
+		margin-top: 2em;
+	}
+
+}
+
+
+/* =Header
+-------------------------------------------------------------- */
+
+@media only screen and ( max-width: 768px ) {
+
+	.site-header {
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
+	}
+
+}
+
+
+/* =Title Area
+-------------------------------------------------------------- */
+
+
+.title-area {
+	padding-left: 60px;
+	background: url( 'images/emblem.png' ) no-repeat;
+	min-height: 49px; /* emblem.png image height */
+	overflow: hidden;
+	margin: 2.5em 0;
+	padding-top: 0.2em;
+	width: 350px;
+	float: left;
+}
+.title-area .site-title {
+	margin: 0;
+}
+.title-area .site-title a {
+	display: block;
+	width: 239px;
+	height: 30px;
+	text-indent: -9999px;
+	background: url( 'images/site-title.png' ) no-repeat;
+}
+.title-area .site-description {
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
+	margin: 0;
+	font-size: 14px;
+}
+
+@media only screen and ( max-width: 640px ) {
+
+	.title-area {
+		padding-left: 0;
+		padding-top: 60px;
+		background-position: top;
+		text-align: center;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.title-area .site-title a {
+		margin: 0 auto;
+	}
+
+}
+
+
+/* =Header widget area
+-------------------------------------------------------------- */
+
+.header-widget-area {
+	float: right;
+	margin: 2.5em 0;
+}
+
+@media only screen and ( max-width: 640px ) {
+
+	.header-widget-area {
+		float: none;
+		clear: left;
+		text-align: center;
+		margin-bottom: 2.5em;
+	}
+
+}
+
+
+/* =Primary nav menu
+-------------------------------------------------------------- */
+
+.nav-primary {
+	background: #fff;
+	border-top: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+	clear: both;
+}
+.nav-primary .menu-toggle {
+	display: none;
+}
+.nav-primary a {
+	text-decoration: none;
+	color: #333;
+}
+.nav-primary ul.menu > li > a {
+	padding: 20px 15px 17px; padding: 2rem 1.5rem 1.7rem;
+	border-bottom: 3px solid transparent;
+	font-size: 19px; font-size: 1.9rem;
+}
+.nav-primary ul.menu > li > a:hover,
+.nav-primary ul.menu > li.current-menu-item > a,
+.nav-primary ul.menu > li:hover > a {
+	border-bottom-color: #555;
+}
+.nav-primary ul.sub-menu {
+	background: #fff;
+	border: 1px solid #ebebeb;
+	font-family: Tahoma, sans-serif;
+	min-width: 12em;
+}
+.nav-primary ul.sub-menu a {
+	color: #666;
+	padding: 10px 15px; padding: 1rem 1.5rem;
+}
+.nav-primary ul.sub-menu li:hover {
+	background: #eee;
+}
+.nav-primary li li.menu-item-has-children > a:after {
+	content: '';
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0.8em;
+	right: 1em;
+	border-left: 0.5em solid #999;
+	border-top: 0.35em solid transparent;
+	border-bottom: 0.35em solid transparent;
+}
+
+@media only screen and ( max-width: 768px ) {
+
+	.nav-primary {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+	.nav-primary ul.menu ul.sub-menu {
+		border: 0;
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+	.nav-primary ul.menu li {
+		width: 100%;
+	}
+	.nav-primary ul.menu li:hover {
+		background: transparent;
+	}
+	.nav-primary ul.menu li a {
+		border: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.nav-primary li li.menu-item-has-children > a:after {
+		display: none;
+	}
+	.nav-primary li li {
+		padding-left: 2.5rem;
+	}
+	.nav-primary ul.sub-menu li li a {
+		color: #999;
+	}
+
+	.js-enabled .nav-primary .menu-toggle {
+		display: block;
+		margin: 0;
+		padding: 2rem 0;
+		cursor: pointer;
+		font-size: 1.9rem;
+	}
+	.js-enabled .nav-primary .menu-toggle:after {
+		content: '+';
+		margin-left: 0.3em;
+	}
+	.js-enabled .nav-primary .menu-toggle.active:after {
+		content: '-';
+	}
+	.js-enabled .nav-primary ul {
+		display: none;
+	}
+	.js-enabled .nav-primary li.menu-item-has-children > a:after {
+		content: '+';
+		display: inline-block;
+		margin-left: 0.3em;
+		position: relative;
+		top: auto;
+		right: auto;
+		border: 0;
+	}
+	.js-enabled .nav-primary li.menu-item-has-children a.active:after {
+		content: '-';
+	}
+
+}
+
+
+/* =Breadcrumbs
+-------------------------------------------------------------- */
+
+.breadcrumb {
+	color: #999;
+	font-size: 14px; font-size: 1.4rem;
+	margin-bottom: 2em;
+}
+
+@media only screen and ( max-width: 768px ) {
+
+	.breadcrumb {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+}
+
+
+
+
+/* =Main content area
+-------------------------------------------------------------- */
+
+.content-sidebar-wrap {
+	margin-top: 2em;
+}
+.content-sidebar-wrap article.entry {
+	background: #fff;
+	border: 1px solid #ebebeb;
+	padding: 2em 3em;
+}
+.content-sidebar-wrap article.entry + article.entry {
+	margin-top: 2em;
+}
+
+@media only screen and ( max-width: 768px ) {
+
+	.content-sidebar-wrap article.entry {
+		border-left: 0;
+		border-right: 0;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+}
+
+
+/* =Post
+-------------------------------------------------------------- */
+
+.entry .entry-title a {
+	text-decoration: none;
+}
+.entry .entry-title a:hover,
+.entry .entry-title a:active {
+	text-decoration: underline;
+}
+.entry .entry-meta {
+	font-size: 14px; font-size: 1.4rem;
+	color: #999;
+}
+
+.title-centered .entry .entry-title {
+	text-align: center;
+}
+
+/* Entry titles with meta */
+
+.tagged ul a span,
+.filed-under ul a span,
+.category-index ul a span,
+.posts-list a span {
+	display: inline-block;
+	color: #999;
+	font-size: 14px;
+}
+.tagged ul a:hover span,
+.filed-under ul a:hover span,
+.category-index ul a:hover span,
+.posts-list a:hover span {
+	color: inherit;
+}
+.tagged ul a span.spacer,
+.filed-under ul a span.spacer,
+.category-index ul a span.spacer,
+.posts-list a span.spacer {
+	width: 0.25em;
+}
+.tagged ul a span.publication-number,
+.filed-under ul a span.publication-number,
+.category-index ul a span.publication-number,
+.posts-list a span.publication-number {
+	min-width: 2.5em;
+	text-align: right;
+	padding-right: 0.5em;
+}
+.tagged ul a span.subtitle,
+.filed-under ul a span.subtitle,
+.category-index ul a span.subtitle,
+.posts-list a span.subtitle {
+	font-style: italic;
+}
+
+
+
+/* =Pagination
+-------------------------------------------------------------- */
+
+.pagination {
+	margin-top: 2em;
+}
+.pagination ul {
+	list-style: none;
+	padding: 0;
+	font-size: 14px; font-size: 1.4rem;
+}
+.pagination li {
+	display: inline-block;
+	text-transform: uppercase;
+}
+.pagination li a {
+	display: inline-block;
+	padding: 0.7em 0.8em;
+	text-decoration: none;
+}
+.pagination li.pagination-omission {
+	background: none;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+
+/* =Widget Areas
+-------------------------------------------------------------- */
+
+.widget-area {
+	line-height: 1.3;
+	color: #999;
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+.widget-title {
+	font-style: normal;
+	font-weight: bold;
+	margin-top: 0;
+	color: #333;
+	border-bottom: 1px solid #ddd;
+}
+
+.widget-area ul {
+	list-style: none;
+	padding-left: 0;
+}
+.widget-area ul ul {
+	padding-left: 1.5em;
+}
+
+.sidebar-primary .widget + .widget {
+	margin-top: 2.5em;
+}
+
+@media only screen and ( max-width: 768px ) {
+
+	.sidebar {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+}
+
+
+/* =Widgets
+-------------------------------------------------------------- */
+
+/* Publication Meta */
+.widget_biblehelps_publication_meta strong {
+	display: block;
+}
+.widget_biblehelps_publication_meta time {
+	padding-left: 1.5em;
+}
+.widget_biblehelps_publication_meta .widget-wrap > ul > li + li {
+	margin-top: 1em;
+}
+.widget_biblehelps_publication_meta strong + span {
+	display: none;
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-style: italic;
+}
+.js-enabled .widget_biblehelps_publication_meta strong + span {
+	display: block;
+}
+.js-enabled .widget_biblehelps_publication_meta li span.expand {
+	display: inline-block;
+	background: #999;
+	color: #fff;
+	width: 1.05em;
+	height: 1.1em;
+	font-size: 13px;
+	font-size: 1.3rem;
+	cursor: pointer;
+	border-radius: 3px;
+	position: relative;
+	vertical-align: -0.15em;
+}
+.js-enabled .widget_biblehelps_publication_meta li span.expand:after {
+	content: "+";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	line-height: 1.0;
+}
+.js-enabled .widget_biblehelps_publication_meta li span.expand:hover {
+	background: #333;
+}
+.js-enabled .widget_biblehelps_publication_meta li span.expand.active:after {
+	content: "-";
+}
+.js-enabled .widget_biblehelps_publication_meta ul ul ul {
+	display: none;
+}
+
+/* Related Publications */
+.js-enabled .widget_biblehelps_related_publications ul {
+	display: none;
+}
+.widget_biblehelps_related_publications .widget-title span {
+	font-weight: normal;
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-family: Tahoma, sans-serif;
+}
+
+/* Searchform */
+.search-form {
+	display: inline-block;
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+.search-form .search-field {
+	line-height: 2.4em;
+	height: 2.4em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	padding: 0 0.5em;
+	border: 1px solid #ebebeb;
+	border-right: 0;
+}
+.search-form .search-submit {
+	-webkit-appearance: none;
+	border: 0;
+	padding: 0 0.7em;
+	height: 2.4em;
+	line-height: 2.4em;
+	float: left;
+}
+
+
+/* =Footer
+-------------------------------------------------------------- */
+
+.site-footer {
+	overflow: hidden;
+	padding: 1em 0;
+	font-size: 14px; font-size: 1.4rem;
+	margin-top: 20px; margin-top: 2rem;
+}
+.site-footer p {
+	float: left;
+	margin: 0;
+}
+.site-footer ul.menu {
+	float: right;
+}
+.site-footer ul.menu li {
+	margin-right: 0.5em;
+}
+
+@media only screen and ( max-width: 768px ) {
+
+	.site-footer {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+}
+
+
+/* =Shortcodes
+-------------------------------------------------------------- */
+
+ul.posts-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.category-index,
+.posts-list {
+	font-family: Tahoma, sans-serif;
+}
+
+
+/* =Category Index page template
+-------------------------------------------------------------- */
+
+.category-index-controls {
+	background: #eee;
+	padding: 1em;
+	overflow: hidden;
+}
+.category-index-controls > div {
+	width: 35%;
+	float: left;
+}
+.js-enabled .category-index-controls > div {
+	width: 50%;
+}
+.category-index-controls h4 {
+	font-style: normal;
+	font-weight: bold;
+	margin: 0 0 0.5em;
+}
+.category-index-controls label {
+	float: left;
+	clear: left;
+	font-size: 13px; font-size: 1.3rem;
+	font-family: Tahoma, sans-serif;
+}
+.category-index-controls .submit {
+	border: 0;
+	width: 30%;
+	float: left;
+	padding: 0.5em;
+}
+.js-enabled .category-index-controls .submit {
+	display: none;
+}
+.category-index ul {
+	list-style: none;
+	padding: 0;
+}
+.category-index ul ul {
+	padding-left: 2em;
+}
+.category-index h2 {
+	font-size: 19px; font-size: 1.9rem;
+	margin: 1.5em 0 0.5em;
+}
+.category-index h3 {
+	font-style: normal;
+	font-weight: bold;
+	margin: 0.5em 0 0;
+}
+.js-enabled .category-index h2,
+.js-enabled .category-index h3 {
+	cursor: pointer;
+}
+.js-enabled .category-index h2:hover,
+.js-enabled .category-index h3:hover {
+	color: #999;
+}
+.js-enabled .category-index h2:after,
+.js-enabled .category-index h3:after {
+	content: '+';
+	margin-left: 0.2em;
+}
+.js-enabled .category-index h2.active:after,
+.js-enabled .category-index h3.active:after {
+	content: '-';
+}
+.js-enabled .category-index ul ul {
+	display: none;
+}
+
+
+/* =Publication CPT
+-------------------------------------------------------------- */
+
+.single-publication .entry-title,
+.single-publication .entry-subtitle,
+.single-publication .entry-meta,
+.single-publication .after-post-content {
+	text-align: center;
+}
+
+/* TOC */
+.publication-toc {
+	background: #eee;
+	padding: 1em;
+	width: 45%;
+	float: right;
+	margin: 0.3em 0 0.5em 1.5em;
+}
+.publication-toc h5 {
+	font-size: 16px; font-size: 1.6rem;
+	font-weight: bold;
+	font-style: normal;
+	margin: 0;
+}
+.publication-toc h5 span {
+	font-weight: normal;
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-family: Tahoma, sans-serif;
+}
+.publication-toc ul {
+	font-family: Tahoma, sans-serif;
+	font-size: 12px; font-size: 1.2rem;
+	line-height: 1.4;
+	list-style: none;
+	margin: 1em 0 0;
+	padding: 0;
+}
+.js-enabled .publication-toc ul {
+	display: none;
+}
+.publication-toc li + li {
+	margin-top: 0.2em;
+}
+.publication-toc li.h3,
+.publication-toc li.h4,
+.publication-toc li.span {
+	margin-left: 2em;
+}
+
+@media only screen and ( max-width: 600px ) {
+
+	.publication-toc {
+		margin: 0 0 1.5em;
+		float: none;
+		width: 100%;
+	}
+
+}
+
+
+/* =Loading overlay
+-------------------------------------------------------------- */
+
+#loading-overlay {
+	display: none;
+	position: fixed;
+	z-index: 998;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.25);
+}
+
+#loading-overlay span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 8em;
+	height: 8em;
+	margin-top: -4em;
+	margin-left: -4em;
+	border: 1px solid #333;
+	background: #eee;
+	font-size: 0.813em;
+	line-height: 1em;
+	text-align: center;
+}
+
+#loading-overlay span img {
+	display: block;
+	margin: 2em auto 1em;
+}
+
+
+/* =Plugins
+-------------------------------------------------------------- */
+
+.rtTooltipSocial {
+	display: none;
+}
+
+.jetpack_subscription_widget .error,
+.jetpack_subscription_widget .success {
+	background: yellow;
+	color: green;
+	padding: 1em;
+	border: 1px solid green;
+}
+.jetpack_subscription_widget .success p {
+	margin: 0;
+}
+
+
+/* =Temporary Fixes
+-------------------------------------------------------------- */
+
+.blog .content-sidebar-wrap article.entry {
+overflow: hidden;
+}
+
+.single-publication_author article > header > h1 {
+	margin: 0;
+}
